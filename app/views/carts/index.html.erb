@@ -1,0 +1,63 @@
+<div class="row">
+	<div class="col-md-12">
+		<h2>購物車</h2>
+			<span class= "pull-right" style= "padding-bottom:5px;">
+			<%= link_to "清空購物車",clean_carts_path, method: :delete, data: {confirm: "確定清空購物車嗎？"}, class: "btn btn-default btn-xs" %>
+			</span>
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th colspan="2">商品資訊</th>
+						<th>單價</th>
+						<th>數量</th>	
+						<th>小計</th>
+						<th width="5%">Options</th>
+					</tr>
+				</thead>
+				<tbody>
+				<% current_cart.items.each do |product| %>
+					<tr>
+						<td>
+							<%= link_to product_path(product) do  %>
+							<% if product.photo.present? %>
+								<%= image_tag(product.photo.image.thumb.url, class: "thumbnail") %>
+							<% else %>
+								<%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+							<% end %>
+							<% end %>
+						</td>	
+						<td width="30%"><%= link_to product.title, product_path(product)  %></td>
+						<td><%= product.price %></td>
+						<td>
+						<% item = current_cart.find_cart_item(product) %>
+						<%=form_for item, url: item_path(product) do |f| %>
+							<%= f.select :quantity, 1..product.quantity  %>
+							<%= f.button do %>
+								<i class="fa fa-refresh"></i>
+							<% end %>
+						<% end %>
+						</td>
+						<td><%= product.price * item.quantity %></td>
+						<td class="text-center">
+							<%= link_to item_path(product), method: :delete do  %>
+								<i class="fa fa-trash fa-lg"></i>
+							<% end %>
+						</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>	
+			<br>
+			
+			<div class="total clearfix">
+			<span class="pull-right">
+				<span>總計 <b><%= render_total_price(current_cart) %></b> NTD</span>
+			</span>
+			</div>
+			<hr>
+			<div class="checkout clearfix">
+				<%= link_to "確認結帳", checkout_carts_path, method: :post, class: "btn btn-danger pull-right" %>
+			</div>
+
+	</div>
+</div>

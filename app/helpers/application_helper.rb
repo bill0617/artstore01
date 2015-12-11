@@ -25,4 +25,17 @@ module ApplicationHelper
 
   end
 
+  def render_cart_items_count(cart)
+    cart.items.count
+  end
+  
+  def render_total_price(cart) 
+    cart.total_price
+  end
+
+  def render_order_state(order)
+    t("orders.order_state.#{order.aasm_state}")
+  end
+
+
 end

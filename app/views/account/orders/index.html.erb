@@ -1,0 +1,23 @@
+<h2>訂單列表</h2>
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>編號</th>
+			<th>成立時間</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @orders.each do |order| %>	
+		<tr>
+			<td>
+				<%= link_to order.id, account_order_path(order.token) %>
+			</td>
+			<td>
+				<%= order.created_at.to_s(:long) %>
+			</td>
+		</tr>
+		<% end %>
+		
+	</tbody>
+</table>

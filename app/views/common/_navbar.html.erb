@@ -25,8 +25,8 @@
         <li><%= link_to "登入", new_user_session_path  %></li>
         <% else %>
         <li>
-          <%= link_to "#" do %>
-          購物車<i class="fa fa-shopping-cart"></i>(0)
+          <%= link_to carts_path do %>
+          購物車<i class="fa fa-shopping-cart"></i>( <%= render_cart_items_count(current_cart) %> )
           <% end %>
         </li>
         <li class="dropdown">
@@ -36,6 +36,7 @@
             <% if current_user.admin? %>
             <li><%= link_to "Admin Options", admin_products_path %></li>
             <% end %>
+            <li><%= link_to "My Orders", account_orders_path %></li>
             <li class="divider"></li>
             <li><%= link_to "登出", destroy_user_session_path, method: :delete %></li>
 
