@@ -14,7 +14,7 @@ class Account::OrdersController < ApplicationController
 			current_cart.clean!
 			redirect_to account_order_path(@order.token)
 		else
-			redirect_to 'carts/checkout'
+			render 'carts/checkout'
 		end
 	end
 
@@ -27,7 +27,7 @@ class Account::OrdersController < ApplicationController
 	def pay_with_credit_card
 		@order = current_user.orders.find_by_token(params[:id])
 		@order.set_payment_with!("credit_card")
-		@order.pay!
+		@order.make_payment!
 		redirect_to account_order_path(@order.token), notice: "已成功付款"
 	end
 

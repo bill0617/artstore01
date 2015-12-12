@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'seo_helper', '~> 1.0'
+gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'aasm'
 gem 'awesome_rails_console'
