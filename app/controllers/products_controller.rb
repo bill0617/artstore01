@@ -20,4 +20,17 @@ class ProductsController < ApplicationController
     redirect_to :back
   end
 
+  def add_to_follow
+    @product = Product.find(params[:id])
+
+    if !current_user.item_followeds.include?(@product)
+      current_user.add_product_to_follow(@product)
+      flash[:success] = "已成功將 #{@product.title} 加進追蹤清單！"
+    else
+      flash[:warning] = "此商品已加進追蹤清單！"
+    end
+    redirect_to :back
+
+  end
+
 end

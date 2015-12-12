@@ -4,7 +4,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-has_many :orders
+has_many :orders, dependent: :destroy
+has_many :my_follows, dependent: :destroy
+has_many :item_followeds, through: :my_follows, source: :product
+# has_one :myfollow, dependent: :destroy
+# has_many :products, through: :myfollows
   def admin?
     is_admin
   end
@@ -15,6 +19,10 @@ has_many :orders
 
   def to_admin
     self.update_columns(is_admin: true)
+  end
+
+  def add_product_to_follow(product)
+    item_followeds << product
   end
 
 end
