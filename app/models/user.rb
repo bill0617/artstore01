@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
 has_many :orders, dependent: :destroy
 has_many :my_follows, dependent: :destroy
-has_many :item_followeds, through: :my_follows, source: :product
+has_many :item_follows, through: :my_follows, source: :product
 # has_one :myfollow, dependent: :destroy
 # has_many :products, through: :myfollows
   def admin?
@@ -22,7 +22,7 @@ has_many :item_followeds, through: :my_follows, source: :product
   end
 
   def add_product_to_follow(product)
-    item_followeds << product
+    item_follows << product
   end
 
 end

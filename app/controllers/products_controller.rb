@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
   def add_to_follow
     @product = Product.find(params[:id])
 
-    if !current_user.item_followeds.include?(@product)
+    if !current_user.item_follows.include?(@product)
       current_user.add_product_to_follow(@product)
       flash[:success] = "已成功將 #{@product.title} 加進追蹤清單！"
     else

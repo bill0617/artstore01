@@ -1,3 +1,43 @@
 // Place all the styles related to the account::my_follow controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h3{
+	margin-left: 90px;
+}
+table.table{
+	margin-left: 90px;
+	width: 770px;
+}
+
+th{
+	letter-spacing: 0.1cm;
+}
+
+th.price{
+	width: 120px;
+}
+th.options{
+	width: 120px;
+}
+th.times{
+	width:120px;
+}
+td.picture{
+	width:90px;
+}
+span.cart{
+	float: right
+}
+	
+.title{
+	font-size: 15px;
+  font-weight: bold;
+  a{
+  	color: green;
+  }
+}
+
+.time{
+  color: gray;
+}
