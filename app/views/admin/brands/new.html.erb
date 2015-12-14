@@ -1,0 +1,20 @@
+<%= provide(:title, "New Brand") %>
+<div class="row">
+<h2 style="margin-left:12px;">New Brand</h2>
+
+<%=simple_form_for [:admin, @brand] do |f| %>
+  <div class="col-md-6">
+    <%= f.input :brand_name, label: "Brand Name:" %>
+  </div>
+  <br>
+
+  <div class="brand-form">
+    <%= f.input :brand_image, as: :file, label: "Brand Pic" %>
+  </div>
+
+
+  <%= f.submit "Upload!", class: "btn btn-danger btn-sm", disable_with: "Submitting...", id: "apple"%>
+ <% end %>
+
+</div>
+	

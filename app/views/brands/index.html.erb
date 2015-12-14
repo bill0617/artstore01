@@ -1,0 +1,14 @@
+<div class="row">
+	<% @brands.each do |brand| %>
+		<div class="col-xs-6 col-md-3">
+		<%= link_to "#", class: "thumbnail" do  %>
+        <% if brand.brand_image.present? %>
+		<%= image_tag(brand.brand_image.thumb.url) %>
+        <% else %>
+          <%= image_tag("http://placehold.it/300x100&text-No Pic") %>
+        <% end %>
+      <% end %>
+		</div>
+	<% end %>
+
+</div>

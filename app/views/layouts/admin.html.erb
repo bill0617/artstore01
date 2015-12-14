@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Artstore後台 | <%= (yield(:title)) %> </title>
+  <title>Artstore後台 ｜ <%= (yield(:title)) %> </title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -17,6 +17,7 @@
       <li><%= link_to "Products List", admin_products_path  %></li>
       <li><%= link_to "Users List", admin_users_path %></li>
       <li><%= link_to "Orders List", admin_orders_path %></li>
+      <li><%= link_to "Brand List", admin_brands_path %></li>
     </ul>
     </div>
   <div class="col-md-10">

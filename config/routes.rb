@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   namespace :admin do
+    
     resources :products
     resources :orders do
       member do
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
         post :to_admin
       end
     end
+    resources :brands
   end
   resources :orders
   resources :products do
@@ -47,7 +49,7 @@ Rails.application.routes.draw do
       delete :clean
     end
   end
-
+  resources :brands
   resources :items, controller: "cart_items"
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -13,8 +13,8 @@
   <%= render "common/navbar" %>
   <%= notice_message %>
 <ul class="nav nav-tabs">
-  <li role="presentation" class="active"><%= link_to "Products List", products_path, "data-toggle" => "tab"  %></li>
-  <li role="presentation"><%= link_to "Brand Zone", products_path, "data-toggle" => "tab" %></li>
+  <li role="nagivation"><%= link_to "Products List", products_path %></li>
+  <li role="presentation"><%= link_to "Brand Zone", brands_path %></li>
 </ul>
 <br>
 <%= yield %>
