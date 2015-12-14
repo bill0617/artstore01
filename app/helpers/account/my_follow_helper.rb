@@ -1,2 +1,3 @@
 module Account::MyFollowHelper
+
 end

@@ -5,29 +5,38 @@
 h3{
 	margin-left: 90px;
 }
-table.table{
+table#apple{
 	margin-left: 90px;
 	width: 770px;
-}
-
-th{
+	border-collapse: collapse;
+	tr:hover {
+		background-color: #fffaf0; 
+	}
+	th{
 	letter-spacing: 0.1cm;
-}
-
-th.price{
+		}
+	th#select{
+	width: 70px;
+				}
+	th.price{
 	width: 120px;
-}
-th.options{
-	width: 120px;
-}
-th.times{
-	width:120px;
-}
-td.picture{
-	width:90px;
-}
-span.cart{
-	float: right
+				}
+	th.options{
+		width: 120px;
+	}
+	th.times{
+		width:120px;
+	}
+	td.picture{
+		width:90px;
+	}
+	span.cart{
+		float: right
+	}
+	}
+input[type=submit] {
+	color: gray;
+	margin-left: 90px
 }
 	
 .title{

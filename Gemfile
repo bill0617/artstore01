@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'sprockets'
 gem 'seo_helper', '~> 1.0'
 gem 'rails-i18n'
 gem 'devise-i18n'

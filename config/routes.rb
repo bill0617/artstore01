@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   namespace :account do
     resources :my_follows do
+      collection do
+        post :add_select_to_cart
+      end
       member do
         post :add_follows_to_cart
       end
