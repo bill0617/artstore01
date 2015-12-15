@@ -11,12 +11,13 @@
 	
 <div class="container">
   <%= render "common/navbar" %>
-  <%= notice_message %>
 <ul class="nav nav-tabs">
   <li role="nagivation"><%= link_to "Products List", products_path %></li>
   <li role="presentation"><%= link_to "Brand Zone", brands_path %></li>
 </ul>
 <br>
+  <%= notice_message %>
+
 <%= yield %>
 
 </div>
