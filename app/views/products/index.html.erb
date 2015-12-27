@@ -1,1 +1,17 @@
-<h1>Test Page</h1>
+
+<div class="row">
+	<% @products.each do |product| %>
+  	<div class="col-sm-6 col-md-3">
+  	<div class="thumbnail">
+  		
+				<%= link_to product do %>
+					<%= image_tag(product.image.url(:thumb)) %>
+  	</div>
+				<% end %>
+			<%= product.title %> <br>
+			$: <%= product.price %>
+			
+		</div>
+	<% end %>
+</div>
+

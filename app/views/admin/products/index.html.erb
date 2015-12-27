@@ -1,12 +1,30 @@
-
-<div class="row">
-	<% @products.each do |product| %>
-  <div class="col-sm-6 col-md-3">
-	<div class="thumbnail">
-	<%= link_to "/" do %>
-	<%= image_tag(product.image.url(:thumb)) %>
-	<% end %>
+<h2>Products List</h2>
+	<div class="pull-right" style="padding-bottom: 5px;">
+		<%= link_to "New Product", new_admin_product_path, class: "btn btn-primary btn-sm"  %>
 	</div>
-	</div>
-	<% end %>
-</div>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th width="220">Picture</th>
+				<th>Name</th>
+				<th>Price</th>
+				<th width="100">Options</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @products.each do |product| %>
+			<tr>
+				<td><%= product.id %></td>
+				<td>
+				<%= link_to product, class: "thumbnail" do  %>
+				<%= image_tag(product.image.url(:thumb)) %>
+				<% end %>
+				</td>
+				<td><%= product.title %></td>
+				<td><%= product.price %></td>
+				<td><%= link_to "Edit", edit_admin_product_path(product) %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
