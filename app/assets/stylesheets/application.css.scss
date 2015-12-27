@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+	background-color: gray;
+}
+
+#product_description {
+	height: 150px;
+}
+#current_image {
+	font-size: 16px;
+	text-align: center
+}
