@@ -11,7 +11,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151227024245) do
+ActiveRecord::Schema.define(version: 20151231092203) do
+
+  create_table "cart_items", force: :cascade do |t|
+    t.integer  "cart_id"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_infos", force: :cascade do |t|
+    t.integer  "order_id"
+    t.string   "billing_name"
+    t.string   "billing_address"
+    t.string   "shipping_name"
+    t.string   "shipping_address"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "order_infos", ["order_id"], name: "index_order_infos_on_order_id"
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer  "order_id"
+    t.string   "product_name"
+    t.integer  "price"
+    t.integer  "quantity"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id"
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "total",          default: 0
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "token"
+    t.boolean  "is_paid",        default: false
+    t.string   "payment_method"
+    t.string   "aasm_state"
+  end
+
+  add_index "orders", ["aasm_state"], name: "index_orders_on_aasm_state"
+  add_index "orders", ["token"], name: "index_orders_on_token"
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 
   create_table "products", force: :cascade do |t|
     t.string   "title"

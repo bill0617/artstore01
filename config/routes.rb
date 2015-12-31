@@ -1,6 +1,22 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :products
+  resources :products do
+    member do
+      post :add_to_cart
+    end
+  end
+
+  resources :carts do
+    collection do
+      post :checkout
+    end
+  end
+
+  resources :orders do 
+    member do
+      post :pay_by_card
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   namespace :admin do

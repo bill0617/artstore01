@@ -17,8 +17,9 @@
       <li><%= link_to 'New', new_admin_product_path  %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "#" do %>
-            購物車<span class="glyphicon glyphicon-shopping-cart"></span>  
+        <li><%= link_to carts_path do %>
+            購物車<span class="glyphicon glyphicon-shopping-cart"></span>
+            (<%= render_cart_items_count(current_cart) %>)  
             <% end %>
 
         </li>

@@ -5,7 +5,7 @@
   	<div class="thumbnail">
   		
 				<%= link_to product do %>
-					<%= image_tag(product.image.url(:thumb)) %>
+					<%= image_tag(product.image.url(:thumb), class: "image") %>
   	</div>
 				<% end %>
 			<%= product.title %> <br>
