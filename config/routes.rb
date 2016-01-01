@@ -6,12 +6,19 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :carts do
-    collection do
-      post :checkout
+  namespace :account do
+    resources :orders do
     end
   end
 
+
+  resources :carts do
+    collection do
+      delete :clean
+      post :checkout
+    end
+  end
+  resources :items, controller: "cart_items"
   resources :orders do 
     member do
       post :pay_by_card
@@ -21,6 +28,15 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   namespace :admin do
     resources :products
+    resources :orders do
+      member do
+        post :deliver
+        post :shipped
+        post :canceled
+        post :return
+      end
+    end
+
   end
   # You can have the root of your site routed with "root"
   root 'products#index'

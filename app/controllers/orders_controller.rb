@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
 		if @order.save
 			@order.build_item_from_cart(current_cart)
 			@order.calculate_total!(current_cart)
+			current_cart.clean_all!
 			redirect_to order_path(@order.token)
 		else
 			render "carts/checkout"
@@ -22,7 +23,7 @@ class OrdersController < ApplicationController
 		@order = current_user.orders.find_by_token(params[:id])
 		@order.set_payment_with!("Credit Card")
 		@order.make_payment!
-		redirect_to "/", notice: "已成功付完款項"
+		redirect_to account_orders_path, notice: "已成功付完款項"
 	end
 
 	private

@@ -7,11 +7,13 @@ class Order < ActiveRecord::Base
 
 	include AasmState
 
+
+
 	def build_item_from_cart(cart)
 		cart.items.each do |product|
 			item = items.build
 			item.product_name = product.title
-			item.quantity = product.quantity
+			item.quantity = cart.find_cart_item(product).quantity
 			item.price = product.price
 			item.save
 		end

@@ -1,6 +1,6 @@
 class Admin::ProductsController < ApplicationController
-	before_action :authenticate_user!, except: [:index]
-	before_action :admin_required, except: [:index]
+	before_action :authenticate_user!
+	before_action :admin_required
 	layout 'admin'
 
 	def index
@@ -50,9 +50,5 @@ class Admin::ProductsController < ApplicationController
 																		:image)
 	end
 
-	def admin_required
-		if !current_user.admin?
-			redirect_to "/"
-		end
-	end
+	
 end

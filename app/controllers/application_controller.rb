@@ -21,6 +21,12 @@ class ApplicationController < ActionController::Base
     cart.tota_price
   end
 
+  def admin_required
+    if !current_user.admin?
+      redirect_to "/"
+    end
+  end
+
 
 end
 

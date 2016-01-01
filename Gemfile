@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'devise-i18n'
+gem "font-awesome-rails"
 gem 'aasm'
 gem 'awesome_rails_console'
 gem "paperclip", "~> 4.3"
