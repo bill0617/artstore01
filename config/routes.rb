@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :orders do 
     member do
       post :pay_by_card
+      post :pay2go_cc_notify
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
