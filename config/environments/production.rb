@@ -95,6 +95,7 @@ Rails.application.configure do
       :region => "ap-northeast-1"
     }
   }
+  Paperclip::Attachment.default_options[:use_timestamp] = false
 
   config.after_initialize do
       Pay2go.integration_mode = :development
