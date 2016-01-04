@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-gem 'aws-sdk'
+gem 'aws-sdk-v1'
 gem 'figaro'
 gem "pay2go"
 gem 'roadie', '2.4.3'
