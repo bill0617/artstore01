@@ -3,10 +3,10 @@ class Order < ActiveRecord::Base
 	has_many :items, class_name: "OrderItem", dependent: :destroy
 	has_one :info, class_name: "OrderInfo", dependent: :destroy
 	accepts_nested_attributes_for :info
-	before_create :generate_token
+	
 
 	include AasmState
-
+	include Tokenable
 
 
 	def build_item_from_cart(cart)
@@ -24,9 +24,7 @@ class Order < ActiveRecord::Base
 		self.save
 	end
 
-	def generate_token
-		self.token = SecureRandom.uuid
-	end
+
 
 	def set_payment_with!(card)
 		self.payment_method = card
