@@ -51,6 +51,8 @@ GEM
       pry-rails
       pry-stack_explorer
       railties
+    aws-sdk (1.66.0)
+      aws-sdk-v1 (= 1.66.0)
     aws-sdk-v1 (1.66.0)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
@@ -234,7 +236,7 @@ PLATFORMS
 DEPENDENCIES
   aasm
   awesome_rails_console
-  aws-sdk-v1
+  aws-sdk (< 2.0)
   bootstrap-sass (~> 3.3.6)
   byebug
   coffee-rails (~> 4.1.0)
