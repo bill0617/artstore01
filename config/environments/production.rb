@@ -86,6 +86,15 @@ Rails.application.configure do
     domain: "sandboxd80330bef11c498592c20c38706ba35b.mailgun.org",
     authentication: :plain,
   }
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['S3_BUCKET_NAME'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+      :region => "us-west-1"
+    }
+  }
 
   config.after_initialize do
       Pay2go.integration_mode = :development
